@@ -10,6 +10,11 @@ function moveNoButton() {
     const container = document.getElementById('mainCard');
     const padding = 20;
     
+    // Switch to absolute positioning dynamically ONLY when interacted with
+    if (noBtn.style.position !== 'absolute') {
+        noBtn.style.position = 'absolute';
+    }
+    
     const maxX = container.clientWidth - noBtn.clientWidth - padding;
     const maxY = container.clientHeight - noBtn.clientHeight - padding;
     
@@ -28,10 +33,8 @@ noBtn.addEventListener('touchstart', (e) => {
 
 // Capture the click event, update the hidden form, submit it, and change screens
 yesBtn.addEventListener('click', () => {
-    // 1. Log the response in our hidden form input
     formAnswer.value = "Hamdalat said YES! 💖";
 
-    // 2. Safely send the form payload using AJAX fetch so the page doesn't refresh
     const formData = new FormData(responseForm);
     fetch(responseForm.action, {
         method: 'POST',
@@ -41,7 +44,6 @@ yesBtn.addEventListener('click', () => {
         }
     }).catch(error => console.log('Form submission handling:', error));
 
-    // 3. Switch card UI states smoothly
     proposalInterface.style.display = 'none';
     successResponse.style.display = 'block';
     createCelebrationHearts();
