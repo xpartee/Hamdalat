@@ -51,17 +51,28 @@ body {
 h1 {
     color: #ff0a54;
     font-size: 2.2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     line-height: 1.3;
+}
+
+.subtitle {
+    color: #ff477e;
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.4;
 }
 
 .buttons {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
-    margin-top: 2rem;
+    margin-top: 1rem;
     position: relative;
-    height: 50px;
+    height: 60px;
+    width: 100%;
 }
 
 .btn {
@@ -86,11 +97,11 @@ h1 {
     box-shadow: 0 8px 20px rgba(255, 10, 84, 0.4);
 }
 
+/* Base style keeps it clean and side-by-side initially */
 #noBtn {
     background-color: #f8f9fa;
     color: #6c757d;
-    position: absolute;
-    right: 60px;
+    z-index: 100;
 }
 
 /* Success State Layout */
